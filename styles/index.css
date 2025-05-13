@@ -1,0 +1,113 @@
+html,
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+footer {
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+header {
+  justify-content: space-between;
+}
+footer {
+  justify-content: space-between;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+}
+
+.header-links a,
+.footer-links a {
+  margin-left: 25px;
+}
+
+.greek-delta {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5em;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.repos,
+.repos-list,
+.posts,
+.topics {
+  padding: 0 40px;
+  align-self: center;
+}
+
+.repos-list,
+.topics {
+  font-size: 3em;
+}
+
+.repos,
+.posts {
+  font-size: 2em;
+  text-align: right;
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.repo-item,
+.post {
+  margin-bottom: 25px;
+}
+
+.repo-item a,
+.topic a {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 25px;
+  transition: color 0.5s ease;
+}
+
+.repo-item a::after,
+.topic a::after {
+  content: "";
+  height: 2px;
+  display: block;
+  margin-top: 4px;
+  background: currentColor;
+  width: 0;
+  right: 100%;
+  position: absolute;
+  transition:
+    width 0.5s ease,
+    right 0.5s ease;
+}
+
+.repo-item a:hover::after,
+.repo-item a.active::after,
+.topic a:hover::after,
+.topic a.active::after {
+  width: 100%;
+  right: 0;
+}
+
+.repo-description {
+  margin-top: 10px;
+  font-size: 0.7em;
+}
