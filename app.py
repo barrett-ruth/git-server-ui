@@ -10,7 +10,7 @@ from flask import Flask, jsonify, render_template, send_from_directory
 app = Flask(__name__, static_folder=None)
 
 GIT_REPO_PATH = str(Path.home() / "dev")
-EXPORT_MARKER = "git-daemon-export-ok"
+EXPORT_MARKER = "readme.md"
 if getpass.getuser() == "ec2-user":
     GIT_REPO_PATH = "/srv/git"
     EXPORT_MARKER = "git-daemon-export-ok"
