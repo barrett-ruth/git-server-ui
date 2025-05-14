@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/styles/common.css" />
     <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="icon" type="image/webp" href="/public/logo.webp" />
     <title>Barrett Ruth's Git Server</title>
   </head>
   <body class="graph-background">
@@ -15,7 +16,12 @@
         <ul class="topics">
           {% for repo in repositories %}
           <li class="topic">
-            <a href="javascript:void(0)" onclick="typechars(event)" data-repo-id="{{ loop.index0 }}">{{ repo.name }}</a>
+            <a
+              href="javascript:void(0)"
+              onclick="typechars(event)"
+              data-repo-id="{{ loop.index0 }}"
+              >{{ repo.name }}</a
+            >
           </li>
           {% endfor %}
         </ul>

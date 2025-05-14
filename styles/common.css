@@ -61,4 +61,6 @@ li {
   border-radius: 4px;
   display: inline-block;
   padding: 0.2em 0.4em;
+  max-width: 100%;
+  user-select: all;
 }

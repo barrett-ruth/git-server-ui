@@ -3,9 +3,6 @@ let clearing = false;
 
 class SiteHeader extends HTMLElement {
   connectedCallback() {
-    const path = window.location.pathname;
-    const isHome = path === "/" || path === "/index.html";
-    
     this.innerHTML = `
       <header>
         <a href="/" style="text-decoration: none; color: inherit">

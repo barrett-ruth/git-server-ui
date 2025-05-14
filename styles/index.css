@@ -45,21 +45,19 @@ ul {
   width: 100%;
 }
 
-.repos,
-.repos-list,
 .posts,
-.topics {
+.topics,
+.repos {
   padding: 0 40px;
   align-self: center;
 }
 
-.repos-list,
 .topics {
   font-size: 3em;
 }
 
-.repos,
-.posts {
+.posts,
+.repos {
   font-size: 2em;
   text-align: right;
   flex: 1;
@@ -69,13 +67,13 @@ a {
   text-decoration: none;
 }
 
-.repo-item,
-.post {
+.post,
+.repo-item {
   margin-bottom: 25px;
 }
 
-.repo-item a,
-.topic a {
+.topic a,
+.repo-item a {
   position: relative;
   display: inline-block;
   color: inherit;
@@ -84,8 +82,8 @@ a {
   transition: color 0.5s ease;
 }
 
-.repo-item a::after,
-.topic a::after {
+.topic a::after,
+.repo-item a::after {
   content: "";
   height: 2px;
   display: block;
@@ -99,10 +97,10 @@ a {
     right 0.5s ease;
 }
 
-.repo-item a:hover::after,
-.repo-item a.active::after,
 .topic a:hover::after,
-.topic a.active::after {
+.topic a.active::after,
+.repo-item a:hover::after,
+.repo-item a.active::after {
   width: 100%;
   right: 0;
 }
