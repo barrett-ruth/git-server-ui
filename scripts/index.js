@@ -42,6 +42,8 @@ function renderRepoDescription(repoLink) {
   let repoName = repoLink.textContent;
   if (repoName.toLowerCase().endsWith('.git')) {
     repoName = repoName.slice(0, -4);
+  } else {
+    return;
   }
 
   postsContainer.innerHTML = "";
