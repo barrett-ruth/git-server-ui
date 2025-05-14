@@ -39,7 +39,10 @@ window.typechars = function (e) {
 function renderRepoDescription(repoLink) {
   const postsContainer = document.getElementById("repos");
   const repoId = repoLink.getAttribute("data-repo-id");
-  const repoName = repoLink.textContent;
+  let repoName = repoLink.textContent;
+  if (repoName.toLowerCase().endsWith('.git')) {
+    repoName = repoName.slice(0, -4);
+  }
 
   postsContainer.innerHTML = "";
 
@@ -58,7 +61,7 @@ function renderRepoDescription(repoLink) {
 
       const cloneUrl = document.createElement("div");
       cloneUrl.style.marginTop = "15px";
-      cloneUrl.innerHTML = `<code>git clone https://git.barrettruth.com/git/${repoName}</code>`;
+      cloneUrl.innerHTML = `<code>git clone \nhttps://git.barrettruth.com/git/${repoName}</code>`;
 
       post.appendChild(cloneUrl);
       const viewNote = document.createElement("div");

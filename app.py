@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 
+import getpass
 import os
 from dataclasses import dataclass
+from pathlib import Path
 
 from flask import Flask, jsonify, render_template, send_from_directory
 
 app = Flask(__name__, static_folder=None)
 
-GIT_REPO_PATH = "/home/frozenpipe/dev"
-EXPORT_MARKER = "readme.md"
+GIT_REPO_PATH = str(Path.home() / "dev")
+EXPORT_MARKER = "git-daemon-export-ok"
+if getpass.getuser() == "ec2-user":
+    GIT_REPO_PATH = "/srv/git"
+    EXPORT_MARKER = "git-daemon-export-ok"
 
 
 @dataclass
@@ -52,9 +57,17 @@ def get_repositories():
                         description = "No description available"
             except _ as _:
                 pass
+
+        display_name = item
+        if display_name.lower().endswith(".git"):
+            display_name = display_name[:-4]
+
         repositories.append(
             Repository(
-                name=item, description=description, path=repo_path, exported=exported
+                name=display_name,
+                description=description,
+                path=repo_path,
+                exported=exported,
             )
         )
 
