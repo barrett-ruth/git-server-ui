@@ -58,7 +58,7 @@ function renderRepoDescription(repoLink) {
 
       const cloneUrl = document.createElement("div");
       cloneUrl.style.marginTop = "15px";
-      cloneUrl.innerHTML = `<code>git clone git.barrettruth.com/${repoName}.git</code>`;
+      cloneUrl.innerHTML = `<code>git clone https://git.barrettruth.com/git/${repoName}</code>`;
 
       post.appendChild(cloneUrl);
       const viewNote = document.createElement("div");
