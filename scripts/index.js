@@ -53,7 +53,7 @@ function renderRepoDescription(repoLink) {
       post.classList.add("post");
 
       const descriptionText = document.createElement("div");
-      descriptionText.textContent =
+      descriptionText.innerHTML =
         repo.description || "No description available";
       descriptionText.style.textDecoration = "none";
 
@@ -64,12 +64,6 @@ function renderRepoDescription(repoLink) {
       cloneUrl.innerHTML = `<code>git clone https://git.barrettruth.com/git/${repoName}.git</code>`;
 
       post.appendChild(cloneUrl);
-      const viewNote = document.createElement("div");
-      viewNote.style.marginTop = "15px";
-      viewNote.style.fontSize = "0.8em";
-      viewNote.style.fontStyle = "italic";
-      viewNote.textContent = "Code should not be viewed in a browser.";
-      post.appendChild(viewNote);
 
       postsContainer.appendChild(post);
     })
