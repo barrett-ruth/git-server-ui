@@ -15,7 +15,7 @@ app = Flask(__name__, static_folder=None)
 GIT_REPO_PATH = str(Path.home() / "dev")
 GIST_PATH = str(Path.home() / "gists")
 EXPORT_MARKER = "readme.md"
-if getpass.getuser() == "ec2-user":
+if getpass.getuser() == "apache":
     GIT_REPO_PATH = "/srv/git"
     GIST_PATH = "/srv/gists"
     EXPORT_MARKER = "git-daemon-export-ok"
