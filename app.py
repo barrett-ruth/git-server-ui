@@ -5,7 +5,7 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-from flask import Flask, jsonify, render_template, send_from_directory
+from flask import Flask, jsonify, render_template, send_from_directory, abort
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import TextLexer, get_lexer_for_filename
@@ -102,7 +102,7 @@ def serve_gist(filename):
     file_path = os.path.join(GIST_PATH, filename)
 
     if not os.path.exists(file_path) or not os.path.isfile(file_path):
-        return "File not found", 404
+        abort(404)
 
     try:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -120,6 +120,11 @@ def serve_gist(filename):
     highlighted = highlighted.replace('<td class="code">', '<td class="code" style="padding-left: 20px;">')
 
     return render_template("gist.html", filename=filename, highlighted_code=highlighted)
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template("404.html"), 404
 
 
 @app.route("/api/repo/<int:repo_id>")

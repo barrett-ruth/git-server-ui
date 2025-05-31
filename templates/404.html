@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles/common.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="icon" type="image/webp" href="/public/logo.webp" />
+    <title>404 - Not Found</title>
+  </head>
+  <body class="graph-background">
+    <site-header></site-header>
+    <main class="main" style="justify-content: center; align-items: center;">
+      <h1 style="font-size: 5em; font-weight: normal; margin: 0;">404</h1>
+    </main>
+    <site-footer></site-footer>
+    <script src="/scripts/common.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const terminalText = " /not-found";
+        const terminalPrompt = document.querySelector(".terminal-prompt");
+        const delay = 250;
+
+        let i = 0;
+        function typechar() {
+          if (i < terminalText.length) {
+            terminalPrompt.innerHTML += terminalText.charAt(i++);
+            setTimeout(typechar, delay / terminalText.length);
+          }
+        }
+        typechar();
+      });
+    </script>
+  </body>
+</html>
