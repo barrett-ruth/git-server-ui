@@ -6,13 +6,18 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from flask import Flask, jsonify, render_template, send_from_directory
+from pygments import highlight
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import TextLexer, get_lexer_for_filename
 
 app = Flask(__name__, static_folder=None)
 
 GIT_REPO_PATH = str(Path.home() / "dev")
+GIST_PATH = str(Path.home() / "gists")
 EXPORT_MARKER = "readme.md"
 if getpass.getuser() == "ec2-user":
     GIT_REPO_PATH = "/srv/git"
+    GIST_PATH = "/srv/gists"
     EXPORT_MARKER = "git-daemon-export-ok"
 
 
@@ -90,6 +95,31 @@ def serve_styles(filename):
 @app.route("/scripts/<path:filename>")
 def serve_scripts(filename):
     return send_from_directory("scripts", filename)
+
+
+@app.route("/gist/<path:filename>")
+def serve_gist(filename):
+    file_path = os.path.join(GIST_PATH, filename)
+
+    if not os.path.exists(file_path) or not os.path.isfile(file_path):
+        return "File not found", 404
+
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            content = f.read()
+    except UnicodeDecodeError:
+        return "Binary file cannot be displayed", 400
+
+    try:
+        lexer = get_lexer_for_filename(filename)
+    except:
+        lexer = TextLexer()
+
+    formatter = HtmlFormatter(style="default", cssclass="highlight", linenos=True, noclasses=True, cssstyles="padding: 20px; font-size: 18px; background-color: #f8f8f8;") 
+    highlighted = highlight(content, lexer, formatter)
+    highlighted = highlighted.replace('<td class="code">', '<td class="code" style="padding-left: 20px;">')
+
+    return render_template("gist.html", filename=filename, highlighted_code=highlighted)
 
 
 @app.route("/api/repo/<int:repo_id>")
