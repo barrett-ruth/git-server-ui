@@ -23,7 +23,7 @@ class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <footer>
-        <span class="greek-delta">&Delta;</span>
+        <span>ʕ •ᴥ•ʔ</span>
         <div class="footer-links">
           <a target="_blank" href="mailto:br.barrettruth@gmail.com">email</a>
         </div>
