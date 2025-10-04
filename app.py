@@ -123,7 +123,7 @@ def serve_gist(filename):
     formatter = HtmlFormatter(
         style="default",
         cssclass="highlight",
-        linenos=True,
+        linenos=False,
         noclasses=True,
         cssstyles="padding: 20px; font-size: 18px; background-color: #f8f8f8;",
     )
