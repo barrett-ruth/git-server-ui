@@ -25,15 +25,18 @@
           font-size: 3em;
           align-self: flex-start;
           margin-left: 40px;
+          margin-bottom: 10px;
         "
       >
         {{ filename }}
       </h2>
 
-      <div style="padding: 40px; width: 100%; max-width: 80ch">
-        <pre
-          class="line-numbers"
-        ><code class="language-{{ lang }}">{{ code | e }}</code></pre>
+      <div class="gist-outer">
+        <div class="gist-box">
+          <pre
+            class="line-numbers"
+          ><code class="language-{{ lang }}">{{ code | e }}</code></pre>
+        </div>
       </div>
     </main>
 
