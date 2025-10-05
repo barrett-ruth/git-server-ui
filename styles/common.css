@@ -1,4 +1,30 @@
-/* Fonts will be loaded from system */
+@font-face {
+  font-family: "Apercu Mono Pro";
+  src: url("/public/fonts/apercu-mono/ApercuMonoProRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Apercu Mono Pro";
+  src: url("/public/fonts/apercu-mono/ApercuMonoProMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Apercu Mono Pro";
+  src: url("/public/fonts/apercu-mono/ApercuMonoProLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Apercu Mono Pro";
+  src: url("/public/fonts/apercu-mono/ApercuMonoProBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
 
 html,
 body {
@@ -65,7 +91,7 @@ li {
 }
 
 pre code {
-  font-family: "Snowflake", "Courier New", monospace;
+  font-family: "Apercu Mono Pro", "Courier New", monospace;
   font-size: 0.95rem;
   line-height: 1.5;
   background: transparent;
@@ -76,6 +102,6 @@ pre code {
 .hljs-ln-numbers {
   text-align: right;
   color: #999;
-  border-right: 10px solid #ffffff;
+  border-right: 1em solid #ffffff;
   user-select: none;
 }
