@@ -50,11 +50,10 @@ li {
   font-family: "Courier New", monospace;
 }
 
-/* Code styling */
 :not(pre) > code {
   font-family: "Courier New", Courier, monospace;
   margin: 0 5px;
-  font-size: 0.8em; /* Match the font size in barrettruth.com */
+  font-size: 0.8em;
   white-space: nowrap;
   border: 1px solid #e1e1e1;
   background-color: #f4f4f4;
@@ -63,4 +62,20 @@ li {
   padding: 0.2em 0.4em;
   max-width: 100%;
   user-select: all;
+}
+
+pre code {
+  font-family: "Snowflake", "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background: transparent;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.hljs-ln-numbers {
+  text-align: right;
+  color: #999;
+  border-right: 10px solid #ffffff;
+  user-select: none;
 }
